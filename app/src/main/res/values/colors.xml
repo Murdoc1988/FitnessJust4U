@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="button_bg_activ">#591E55</color>
+    <color name="button_text_activ">#BABABA</color>
+    <color name="button_bg_inactiv">#591E55</color>
+    <color name="button_text_inactiv">#787878</color>
+    <color name="button_text_highlight">#787878</color>
+    <color name="button_google_bg_activ">#FFFFFF</color>
+    <color name="button_google_bg_highlight">#4285F4</color>
+
+</resources>

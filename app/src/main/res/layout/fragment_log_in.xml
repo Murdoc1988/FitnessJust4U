@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogInFragment">
+
+    <Button
+        android:id="@+id/LogIn_SignUp_Button"
+        android:layout_width="320dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="@color/button_bg_activ"
+        android:text="@string/signup_button"
+        android:textColor="@color/button_text_activ"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/signup_button" />
+
+    <Button
+        android:id="@+id/LogIn_Google_Button"
+        android:layout_width="320dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="128dp"
+        android:backgroundTint="@color/button_google_bg_activ"
+        android:text="@string/google_login_button"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/black"
+        android:textColorHint="@color/black"
+        app:cornerRadius="8dp"
+        app:icon="@drawable/btn_google_signin_light_pressed_hdpi_9"
+        app:iconGravity="start"
+        app:iconPadding="8dp"
+        app:iconSize="24dp"
+        app:iconTint="@color/button_google_bg_activ"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
