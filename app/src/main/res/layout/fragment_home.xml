@@ -6,4 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+    <ImageView
+        android:id="@+id/home_diagramm_img"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/diagramm_platzhalter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/home_training_recommend_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Heutige Trainingsempfehlung: Legday"
+        android:textColor="@color/menu_button"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/home_diagramm_img"
+        app:layout_constraintTop_toBottomOf="@+id/home_diagramm_img" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/home_perfomance_index_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Heutiger Leistungsindex: 1,4"
+        android:textColor="@color/menu_button"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/home_training_recommend_text"
+        app:layout_constraintTop_toBottomOf="@+id/home_training_recommend_text" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/home_daily_tast_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Heute wiegen!"
+        android:textColor="@color/menu_button"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/home_perfomance_index_text"
+        app:layout_constraintTop_toBottomOf="@+id/home_perfomance_index_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>
