@@ -2,4 +2,5 @@
 <resources>
     <string name="signup_button">Registrieren</string>
     <string name="google_login_button">Anmelden mit Google</string>
+    <string name="screen_home">Home</string>
 </resources>
