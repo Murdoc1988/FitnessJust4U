@@ -5,55 +5,56 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TrainingDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fitnessjust4you.adapter.TrainingDetailAdapter
+import com.example.fitnessjust4you.databinding.FragmentTrainingDetailBinding
+import com.example.fitnessjust4you.model.TrainingDetail
 class TrainingDetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var binding: FragmentTrainingDetailBinding
+    private lateinit var adapter: TrainingDetailAdapter
+    private lateinit var trainingDetailList: MutableList<TrainingDetail>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        binding = FragmentTrainingDetailBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        fillTrainingDetailList()
+        setUpUi()
+
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_training_detail, container, false)
+    fun setUpUi(){
+        binding.detailRv.layoutManager = LinearLayoutManager(this)
+        adapter = TrainingDetailAdapter(trainingDetailList)
+        binding.detailRv.adapter = adapter
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TrainingDetailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TrainingDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun fillTrainingDetailList(){
+        trainingDetailList = mutableListOf(
+            TrainingDetail(1, 1, 80.0, 20, 1, 30, 1),
+            TrainingDetail(2, 2, 80.0, 20, 1, 30, 1),
+            TrainingDetail(3, 3, 80.0, 20, 1, 30, 1),
+            TrainingDetail(4, 4, 80.0, 20, 1, 30, 1),
+            TrainingDetail(5, 1, 90.0, 20, 1, 30, 2),
+            TrainingDetail(6, 2, 95.0, 20, 1, 30, 2),
+            TrainingDetail(7, 3, 100.0, 20, 1, 30, 2),
+            TrainingDetail(8, 4, 105.0, 20, 1, 30, 2),
+            TrainingDetail(9, 5, 110.0, 20, 1, 30, 2),
+            TrainingDetail(10, 6, 115.0, 20, 1, 30, 2),
+            TrainingDetail(11, 1, 40.0, 12, 2, 0, 3),
+            TrainingDetail(12, 2, 50.0, 10, 2, 0,3),
+            TrainingDetail(13, 3, 60.0, 10, 2, 0, 3),
+            TrainingDetail(14, 4, 70.0, 8, 2, 0, 3),
+            TrainingDetail(15, 5, 80.0, 8, 2, 0, 3),
+            TrainingDetail(16, 6, 80.0, 8, 2, 0, 3),
+            TrainingDetail(17, 1, 100.0, 12, 1, 45, 4),
+            TrainingDetail(18, 2, 120.0, 12, 1, 45, 4),
+            TrainingDetail(19, 3, 120.0, 12, 1, 45, 4),
+            TrainingDetail(20, 4, 100.0, 12, 1, 45, 4)
+            )
     }
+
 }

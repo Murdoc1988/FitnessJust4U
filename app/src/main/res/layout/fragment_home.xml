@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/home_training_recommend_text" />
 
     <androidx.appcompat.widget.AppCompatCheckedTextView
-        android:id="@+id/home_daily_tast_text"
+        android:id="@+id/home_daily_task_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -56,4 +56,16 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/home_perfomance_index_text"
         app:layout_constraintTop_toBottomOf="@+id/home_perfomance_index_text" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/home_bmi_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Dein aktuelle BMI: 26"
+        android:textColor="@color/menu_button"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/home_daily_task_text"
+        app:layout_constraintTop_toBottomOf="@+id/home_daily_task_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

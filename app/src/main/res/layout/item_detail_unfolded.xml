@@ -36,7 +36,7 @@
                 tools:text="1. Satz" />
 
             <TextView
-                android:id="@+id/detail_counter_text2"
+                android:id="@+id/detail_pause_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -49,14 +49,14 @@
                 tools:text="Pause:" />
 
             <TextView
-                android:id="@+id/detail_counter_text4"
+                android:id="@+id/detail_duration_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/poppins"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/detail_weight_text3"
-                app:layout_constraintTop_toTopOf="@+id/detail_weight_text3"
+                app:layout_constraintStart_toEndOf="@+id/detail_pause_time_text"
+                app:layout_constraintTop_toTopOf="@+id/detail_pause_time_text"
                 tools:text="Dauer:" />
 
             <TextView
@@ -82,46 +82,46 @@
                 tools:text="80kg" />
 
             <TextView
-                android:id="@+id/detail_weight_text3"
+                android:id="@+id/detail_pause_time_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/detail_weight_text2"
-                app:layout_constraintTop_toTopOf="@+id/detail_counter_text2"
+                app:layout_constraintTop_toTopOf="@+id/detail_pause_text"
                 tools:text="1:30 min" />
 
             <TextView
-                android:id="@+id/detail_weight_text4"
+                android:id="@+id/detail_duration_time_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/textView"
-                app:layout_constraintTop_toTopOf="@+id/detail_counter_text4"
+                app:layout_constraintStart_toStartOf="@+id/detail_reps_text2"
+                app:layout_constraintTop_toTopOf="@+id/detail_duration_text"
                 tools:text="1:13 min" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/detail_reps_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="20 Wdh."
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/detail_counter_text4"
+                app:layout_constraintStart_toEndOf="@+id/detail_duration_text"
                 app:layout_constraintTop_toTopOf="@+id/detail_counter_text" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/detail_reps_text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="20 Wdh."
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintStart_toStartOf="@+id/detail_reps_text"
+                app:layout_constraintTop_toBottomOf="@+id/detail_reps_text" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
