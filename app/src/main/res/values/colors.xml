@@ -9,5 +9,6 @@
     <color name="button_text_highlight">#787878</color>
     <color name="button_google_bg_activ">#FFFFFF</color>
     <color name="button_google_bg_highlight">#4285F4</color>
+    <color name="menu_button">#591E55</color>
 
 </resources>

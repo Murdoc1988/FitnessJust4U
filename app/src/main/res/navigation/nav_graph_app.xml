@@ -3,23 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/logInFragment">
+    app:startDestination="@id/homeFragment">
 
-    <fragment
-        android:id="@+id/logInFragment"
-        android:name="com.example.fitnessjust4you.LogInFragment"
-        android:label="fragment_log_in"
-        tools:layout="@layout/fragment_log_in" />
-    <fragment
-        android:id="@+id/loadingFragment"
-        android:name="com.example.fitnessjust4you.LoadingFragment"
-        android:label="fragment_loading"
-        tools:layout="@layout/fragment_loading" />
-    <fragment
-        android:id="@+id/registrationFragment"
-        android:name="com.example.fitnessjust4you.RegistrationFragment"
-        android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" />
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.fitnessjust4you.HomeFragment"
