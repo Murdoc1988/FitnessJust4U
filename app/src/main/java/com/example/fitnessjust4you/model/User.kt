@@ -9,6 +9,7 @@ data class User(
     var upass: String,
     var uweight: Double,
     var usize: Double,
+    var usex: String,
     var uweightdays: MutableList<Days>,
     var uweightinterval: Int
 )
