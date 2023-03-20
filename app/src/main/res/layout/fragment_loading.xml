@@ -7,17 +7,17 @@
     tools:context=".LoadingFragment" >
 
     <ProgressBar
-        android:id="@+id/loading_progressbar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginBottom="128dp"
-        android:indeterminateTint="@color/menu_button"
-        android:progress="50"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:id="@+id/loading_progressbar"
+    style="?android:attr/progressBarStyle"
+    android:layout_width="160dp"
+    android:layout_height="160dp"
+    android:layout_marginBottom="128dp"
+    android:indeterminateTint="@color/menu_button"
+    android:progress="50"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
