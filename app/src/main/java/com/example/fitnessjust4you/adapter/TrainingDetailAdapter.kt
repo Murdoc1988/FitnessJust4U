@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessjust4you.databinding.ItemDetailFoldedBinding
-import com.example.fitnessjust4you.model.TrainingDetail
+import com.example.fitnessjust4you.data.entities.TrainingDetail
 
 class TrainingDetailAdapter (var trainingDetailList: MutableList<TrainingDetail>): RecyclerView.Adapter<TrainingDetailAdapter.DetailHolder>(){
 

@@ -5,10 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.example.fitnessjust4you.adapter.TrainingDetailAdapter
 import com.example.fitnessjust4you.databinding.FragmentTrainingDetailBinding
-import com.example.fitnessjust4you.model.TrainingDetail
+import com.example.fitnessjust4you.data.entities.TrainingDetail
 class TrainingDetailFragment : Fragment() {
 
     private var trainingDetailList: MutableList<TrainingDetail> = mutableListOf(
@@ -64,10 +63,8 @@ class TrainingDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var adapter =  TrainingDetailAdapter(trainingDetailList)
         binding.detailRv.adapter = adapter
-        var title = view.findViewById<TextView>(R.id.menubar_screen_text)
-        /*if(title!=null){
-            title.text = "SetName"
-        }*/
+
+        activity?.title = "Set Name"
 
 
 

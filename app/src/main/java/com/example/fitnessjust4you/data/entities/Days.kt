@@ -1,4 +1,4 @@
-package com.example.fitnessjust4you.model
+package com.example.fitnessjust4you.data.entities
 
 data class Days(
     var did: Int,

@@ -1,6 +1,12 @@
-package com.example.fitnessjust4you.model
+package com.example.fitnessjust4you.data.entities
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "training_set")
 data class TrainingSet(
+
+    @PrimaryKey(autoGenerate = true)
     val sid: Int,
     val sname: String,
     val sdesc: String,
