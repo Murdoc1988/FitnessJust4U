@@ -11,5 +11,5 @@ data class TrainingHistory(
     val h_did: Int,
     val h_dweight: Double,
     val h_reps: Int,
-    val h_date: String
+    val h_date: Long = System.currentTimeMillis()
 )

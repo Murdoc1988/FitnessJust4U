@@ -1,5 +1,6 @@
 package com.example.fitnessjust4you.data.entities
 
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,7 +11,9 @@ data class TrainingSet(
     val sid: Int,
     val sname: String,
     val sdesc: String,
+    @Embedded
     val spmuscles: Muscle,
+    @Embedded
     val ssmuscles: MutableList<Muscle>,
     val s_tid: Int,
     val s_uid: Int

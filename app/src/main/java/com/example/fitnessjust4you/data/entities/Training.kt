@@ -9,5 +9,5 @@ data class Training(
     @PrimaryKey(autoGenerate = true)
     val tid: Int,
     val tname: String,
-    val tdate: String
+    val tdate: Long = System.currentTimeMillis()
     )
