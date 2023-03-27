@@ -51,7 +51,7 @@ interface FitnessDao {
 
     //TrainingHistory
     @Query("SELECT * FROM training_detail")
-    fun getTrainingHistory():LiveData<List<TrainingHistory>>
+    fun getTrainingHistory():LiveData<List<TrainingDetail>>
 
     //TrainingSet
     @Query("SELECT * FROM training_set")

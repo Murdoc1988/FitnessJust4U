@@ -18,7 +18,8 @@ data class User(
     var uweight: Double,
     var usize: Double,
     var usex: String,
-    @Embedded
-    var uweightdays: MutableList<Days>,
+/*    @Embedded
+    var uweightdays: MutableList<Days>,*/
+    var uweightdays: String,
     var uweightinterval: Int
 )

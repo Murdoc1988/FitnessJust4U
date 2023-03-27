@@ -11,10 +11,12 @@ data class TrainingSet(
     val sid: Int,
     val sname: String,
     val sdesc: String,
-    @Embedded
-    val spmuscles: Muscle,
-    @Embedded
-    val ssmuscles: MutableList<Muscle>,
+    /*@Embedded
+    val spmuscles: Muscle,*/
+    val spmuscles: String,
+/*    @Embedded
+    val ssmuscles: MutableList<Muscle>,*/
+    val ssmuscles: String,
     val s_tid: Int,
     val s_uid: Int
 )
