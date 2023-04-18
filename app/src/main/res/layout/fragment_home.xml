@@ -6,32 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <ImageView
-        android:id="@+id/home_diagramm_img"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/diagramm_platzhalter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.appcompat.widget.AppCompatCheckedTextView
         android:id="@+id/home_training_recommend_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Heutige Trainingsempfehlung: Legday"
         android:textColor="@color/menu_button"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/home_diagramm_img"
-        app:layout_constraintTop_toBottomOf="@+id/home_diagramm_img" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     <androidx.appcompat.widget.AppCompatCheckedTextView
         android:id="@+id/home_perfomance_index_text"
@@ -68,4 +56,29 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/home_daily_task_text"
         app:layout_constraintTop_toBottomOf="@+id/home_daily_task_text" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="409dp"
+        android:layout_height="314dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_chart"/>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/testImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_bmi_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

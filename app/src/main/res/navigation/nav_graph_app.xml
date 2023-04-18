@@ -39,13 +39,20 @@
         <action
             android:id="@+id/action_trainingOVFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_trainingOVFragment_to_trainingSetFragment"
+            app:destination="@id/trainingSetFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/trainingSetFragment"
         android:name="com.example.fitnessjust4you.TrainingSetFragment"
         android:label="fragment_training_set"
-        tools:layout="@layout/fragment_training_set" />
+        tools:layout="@layout/fragment_training_set" >
+        <action
+            android:id="@+id/action_trainingSetFragment_to_trainingDetailFragment"
+            app:destination="@id/trainingDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/trainingDetailFragment"

@@ -44,10 +44,11 @@ class BodyStatsFragment : Fragment() {
 
         binding.bodyStatsFAB.setOnClickListener{
             binding.bodyStatsAddOverlay.isVisible = true
+            binding.bodyStatsFAB.isGone = true
         }
 
         binding.bsoverlayCancleButton.setOnClickListener {
-            binding.bodyStatsAddOverlay.isGone = true
+
         }
 
         binding.bsoverlayAddButton.setOnClickListener{
@@ -58,6 +59,8 @@ class BodyStatsFragment : Fragment() {
             var water: Double  = binding.bsoverlayWaterInput.text.toString().toDouble()
             var bodyStats = BodyStats(0, "03.03.2023", weight, fat, water, 0 )
             viewModel.addBodyStats(bodyStats)
+            binding.bodyStatsAddOverlay.isGone = true
+            binding.bodyStatsFAB.isVisible = true
 
         }
 

@@ -7,10 +7,7 @@ import androidx.lifecycle.viewModelScope
 import coil.ImageLoader
 import com.example.fitnessjust4you.data.FitnessDatabase.Companion.getInstance
 import com.example.fitnessjust4you.data.Repository
-import com.example.fitnessjust4you.data.entities.BodyStats
-import com.example.fitnessjust4you.data.entities.Training
-import com.example.fitnessjust4you.data.entities.TrainingDetail
-import com.example.fitnessjust4you.data.entities.TrainingSet
+import com.example.fitnessjust4you.data.entities.*
 import kotlinx.coroutines.launch
 
 class AppViewModel(application: Application): AndroidViewModel(application){
@@ -19,6 +16,7 @@ class AppViewModel(application: Application): AndroidViewModel(application){
     private val repository = Repository(database)
 
     val bodyStatsList = repository.bodyStatsList
+    val chartList = repository.chartList
     val trainingList = repository.trainingList
     val setList = repository.setList
     val detailList = repository.detailList
@@ -46,5 +44,30 @@ class AppViewModel(application: Application): AndroidViewModel(application){
         viewModelScope.launch {
             repository.addDetail(trainingDetail)
         }
+    }
+
+    fun addChart(chart: Chart){
+        viewModelScope.launch {
+            repository.addChart(chart)
+        }
+    }
+
+    fun getChartURL(){
+        var url = "https://image-charts.com/chart?cht=lc&chs=700x100"
+        var timestamps: String = ""
+        var weigts: String = ""
+        var fats: String = ""
+        var waters: String =""
+
+        repository.bodyStatsList.value!!.forEach {
+            timestamps = timestamps + it.btimestamp.toString() + "|"
+            weigts = weigts + it.bweigt.toString() + ","
+            fats = fats + it.bfat + ","
+            waters = waters + it.bwater.toString() +  ","
+        }
+
+        url = "$url\$chxl=$timestamps\$chd=$weigts|$fats|waters"
+        println(url)
+
     }
 }

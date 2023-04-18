@@ -11,6 +11,9 @@ data class TrainingSet(
     val sid: Int,
     val sname: String,
     val sdesc: String,
+    val ssets: Int,
+    val srepsstart: Int,
+    val srepsend: Int,
     /*@Embedded
     val spmuscles: Muscle,*/
     val spmuscles: String,

@@ -37,6 +37,10 @@ interface FitnessDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertBodyStats(bodyStats: BodyStats)
 
+    //Chart
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertChart(chart: Chart)
+
 
 
     //SELECT ALL
@@ -68,6 +72,10 @@ interface FitnessDao {
     //BodyStats
     @Query("SELECT * FROM bodystats")
     fun getBodyStats():LiveData<List<BodyStats>>
+
+    //Chart
+    @Query("SELECT * FROM charts")
+    fun getCharts():LiveData<List<Chart>>
 
 
 

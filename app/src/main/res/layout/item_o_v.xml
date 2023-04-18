@@ -24,7 +24,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/set_name_text"
+                android:id="@+id/training_name_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -36,18 +36,18 @@
                 tools:text="Brust, Rücken" />
 
             <TextView
-                android:id="@+id/set_set_counter_text"
+                android:id="@+id/training_set_counter_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif-medium"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/set_name_text"
-                app:layout_constraintTop_toBottomOf="@+id/set_name_text"
+                app:layout_constraintStart_toStartOf="@+id/training_name_text"
+                app:layout_constraintTop_toBottomOf="@+id/training_name_text"
                 tools:text="11 Übungen" />
 
             <TextView
-                android:id="@+id/set_repeat_counter_text"
+                android:id="@+id/training_duration_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -55,8 +55,8 @@
                 android:fontFamily="sans-serif-medium"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/set_set_counter_text"
-                app:layout_constraintTop_toBottomOf="@+id/set_set_counter_text"
+                app:layout_constraintStart_toStartOf="@+id/training_set_counter_text"
+                app:layout_constraintTop_toBottomOf="@+id/training_set_counter_text"
                 tools:text="ca. 180min" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

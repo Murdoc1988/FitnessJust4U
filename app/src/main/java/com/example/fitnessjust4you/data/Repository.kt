@@ -2,10 +2,7 @@ package com.example.fitnessjust4you.data
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import com.example.fitnessjust4you.data.entities.BodyStats
-import com.example.fitnessjust4you.data.entities.Training
-import com.example.fitnessjust4you.data.entities.TrainingDetail
-import com.example.fitnessjust4you.data.entities.TrainingSet
+import com.example.fitnessjust4you.data.entities.*
 
 data class Repository(private val fitnessDatabase: FitnessDatabase){
 
@@ -21,6 +18,9 @@ data class Repository(private val fitnessDatabase: FitnessDatabase){
 
     //List of BodyStats
     val bodyStatsList: LiveData<List<BodyStats>> get() = fitnessDatabase.fitnessDao.getBodyStats()
+
+    //List of Charts
+    val chartList: LiveData<List<Chart>> get() = fitnessDatabase.fitnessDao.getCharts()
 
 
     //insert/add
@@ -55,6 +55,14 @@ data class Repository(private val fitnessDatabase: FitnessDatabase){
             fitnessDatabase.fitnessDao.insertBodyStats(bodyStats)
         }catch (e: Exception){
             Log.e("Repository", "Failed to inserts Bodystats in to FitnessDatabase")
+        }
+    }
+
+    suspend fun addChart(chart: Chart){
+        try {
+            fitnessDatabase.fitnessDao.insertChart(chart)
+        }catch (e: Exception){
+            Log.e("Repository", "Failed to insert Chart into FitnessDatabase")
         }
     }
 
