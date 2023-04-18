@@ -5,6 +5,10 @@
             android:id="@id/trainingOVFragment"
             android:icon="@drawable/training_small_button"/>
         <item
+            android:title="Weight"
+            android:id="@id/bodyStatsFragment"
+            android:icon="@drawable/weight_button"/>
+        <item
             android:title="Home"
             android:id="@id/homeFragment"
             android:icon="@drawable/home_button"/>

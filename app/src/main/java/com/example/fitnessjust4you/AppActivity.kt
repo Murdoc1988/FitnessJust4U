@@ -3,8 +3,10 @@ package com.example.fitnessjust4you
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.fitnessjust4you.databinding.FragmentHomeBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class AppActivity : AppCompatActivity() {
@@ -15,6 +17,8 @@ class AppActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.nav_host_fragment)
         val navView: BottomNavigationView = findViewById(R.id.buttomnavbar)
         navView.setupWithNavController(navController)
+
+
 
     }
 }

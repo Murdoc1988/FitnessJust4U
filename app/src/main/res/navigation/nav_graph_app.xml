@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_trainingOVFragment"
             app:destination="@id/trainingOVFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_bodyStatsFragment"
+            app:destination="@id/bodyStatsFragment" />
     </fragment>
 
     <fragment
@@ -49,4 +52,9 @@
         android:name="com.example.fitnessjust4you.TrainingDetailFragment"
         android:label="fragment_training_detail"
         tools:layout="@layout/fragment_training_detail" />
+    <fragment
+        android:id="@+id/bodyStatsFragment"
+        android:name="com.example.fitnessjust4you.BodyStatsFragment"
+        android:label="fragment_bodystats"
+        tools:layout="@layout/fragment_bodystats" />
 </navigation>

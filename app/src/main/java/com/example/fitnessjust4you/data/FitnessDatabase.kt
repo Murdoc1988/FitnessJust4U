@@ -16,7 +16,7 @@ import com.example.fitnessjust4you.data.entities.*
         TrainingSet::class,
         User::class,
         Days::class,
-        WeightHistory::class
+        BodyStats::class
     ],
     version = 1,
     exportSchema = false

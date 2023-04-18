@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintsLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BodyStatsFragment">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bodyStatsFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/add_button"
+        android:backgroundTintMode="src_over"
+        android:backgroundTint="@color/fab_transparent"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bodyStats_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:itemCount="20"
+        tools:listitem="@layout/item_bodystats" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bodyStats_add_overlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bsoverlay_weight_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="Weight:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/bsoverlay_weight_input"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="16dp"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/bsoverlay_weight_textview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/bsoverlay_weight_textview"
+                app:layout_constraintTop_toTopOf="@+id/bsoverlay_weight_textview"
+                app:layout_constraintVertical_bias="0.615" />
+
+            <TextView
+                android:id="@+id/bsoverlay_fat_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Fat"
+                app:layout_constraintStart_toStartOf="@+id/bsoverlay_weight_textview"
+                app:layout_constraintTop_toBottomOf="@+id/bsoverlay_weight_textview" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/bsoverlay_fat_input"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/bsoverlay_fat_textview"
+                app:layout_constraintStart_toStartOf="@+id/bsoverlay_weight_input"
+                app:layout_constraintTop_toTopOf="@+id/bsoverlay_fat_textview"
+                android:inputType="numberDecimal"/>
+
+            <TextView
+                android:id="@+id/bsoverlay_water_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Water"
+                app:layout_constraintStart_toStartOf="@+id/bsoverlay_fat_textview"
+                app:layout_constraintTop_toBottomOf="@+id/bsoverlay_fat_textview" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/bsoverlay_water_input"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/bsoverlay_water_textview"
+                app:layout_constraintStart_toStartOf="@+id/bsoverlay_fat_input"
+                app:layout_constraintTop_toTopOf="@+id/bsoverlay_water_textview"
+                app:layout_constraintVertical_bias="0.0"
+                android:inputType="numberDecimal"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bsoverlay_add_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="40dp"
+                android:text="Add"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bsoverlay_water_input" />
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/bsoverlay_cancle_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:text="Cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bsoverlay_water_input" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

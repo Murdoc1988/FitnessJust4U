@@ -33,6 +33,10 @@ interface FitnessDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTrainingSet(trainingSet: TrainingSet)
 
+    //BodyStats
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertBodyStats(bodyStats: BodyStats)
+
 
 
     //SELECT ALL
@@ -61,9 +65,9 @@ interface FitnessDao {
     @Query("SELECT * FROM user")
     fun getUsers():LiveData<List<User>>
 
-    //WeightHistory
-    @Query("SELECT * FROM weight_history")
-    fun getWeightHistory():LiveData<List<WeightHistory>>
+    //BodyStats
+    @Query("SELECT * FROM bodystats")
+    fun getBodyStats():LiveData<List<BodyStats>>
 
 
 
