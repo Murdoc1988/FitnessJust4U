@@ -64,11 +64,7 @@ class TrainingDetailFragment : Fragment() {
         var adapter =  TrainingDetailAdapter(trainingDetailList)
         binding.detailRv.adapter = adapter
 
-        activity?.title = "Set Name"
-
-
-
-
+        activity?.title = "Sets"
     }
 
 }

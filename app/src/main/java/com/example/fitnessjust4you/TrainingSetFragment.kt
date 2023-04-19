@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import com.example.fitnessjust4you.adapter.SetAdapter
+import com.example.fitnessjust4you.data.entities.TrainingSet
 import com.example.fitnessjust4you.databinding.FragmentTrainingSetBinding
 
 class TrainingSetFragment : Fragment() {
@@ -31,10 +34,30 @@ class TrainingSetFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = "Sets"
+        activity?.title = "Excercises"
         viewModel.setList.observe(viewLifecycleOwner){
             var adapter = SetAdapter(viewModel.setList.value!!)
             binding.setRecyclerview.adapter = adapter
+        }
+
+        binding.setoverlayCardview.isGone = true
+
+        binding.setAddFAB.setOnClickListener {
+            binding.setoverlayCardview.isVisible = true
+            binding.setAddFAB.isGone = true
+        }
+
+        binding.setoverlayCancelButton.setOnClickListener {
+            binding.setoverlayCardview.isGone = true
+            binding.setAddFAB.isVisible = true
+        }
+
+        binding.setoverlayAddButton.setOnClickListener {
+            var exercisename = binding.setNameInput.text.toString()
+            var newSet = TrainingSet(0, exercisename, "Beugen mit den Beinen", (0..10).random(), (0..10).random(), (10..20).random(), "Waden", "Waden, Waden, Waden", 0,0  )
+            viewModel.addSet(newSet)
+            binding.setoverlayCardview.isGone = true
+            binding.setAddFAB.isVisible = true
         }
     }
 }

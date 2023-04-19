@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import com.example.fitnessjust4you.adapter.TrainingAdapter
 import com.example.fitnessjust4you.data.entities.Training
@@ -19,7 +21,7 @@ class TrainingOVFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var newTraining = Training(0, "Bauch, Beine, Po")
+        /*var newTraining = Training(0, "Bauch, Beine, Po")
         viewModel.addTraining(newTraining)
         newTraining = Training(0, "Rücken")
         viewModel.addTraining(newTraining)
@@ -35,7 +37,7 @@ class TrainingOVFragment : Fragment() {
         newSet = TrainingSet(0, "Bankdrücken", "Bank gegen den Boden drücken", 20, 5, 7, "Wandmuskel", "noch mal andere Muskeln", 0,0  )
         viewModel.addSet(newSet)
         newSet = TrainingSet(0, "Seilspringen", "Bring das Seil zum Springen", 2, 100, 150, "Keine", "Sieht nur doof aus", 0,0  )
-        viewModel.addSet(newSet)
+        viewModel.addSet(newSet)*/
 
 
     }
@@ -53,11 +55,34 @@ class TrainingOVFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = "Training"
+        activity?.title = "Trainings"
         viewModel.trainingList.observe(viewLifecycleOwner){
             var adapter = TrainingAdapter(viewModel.trainingList.value!!)
             binding.trainingRecyclerview.adapter = adapter
         }
+
+        binding.trainingoverlayCardview.isGone = true
+
+        binding.trainingoverlayFAB.setOnClickListener {
+            binding.trainingoverlayFAB.isGone = true
+            binding.trainingoverlayCardview.isVisible = true
+        }
+
+        binding.trainingoverlayCancelButton.setOnClickListener {
+            binding.trainingoverlayCardview.isGone = true
+            binding.trainingoverlayFAB.isVisible = true
+        }
+
+        binding.trainingoverlayAddButton.setOnClickListener {
+            var trainingname = binding.trainingoverlayNameInput.text.toString()
+            var newTraining = Training(0, trainingname)
+            viewModel.addTraining(newTraining)
+            binding.trainingoverlayCardview.isGone = true
+            binding.trainingoverlayFAB.isVisible = true
+
+
+        }
+
     }
 
 }
