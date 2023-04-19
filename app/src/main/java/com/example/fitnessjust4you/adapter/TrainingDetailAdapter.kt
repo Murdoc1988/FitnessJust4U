@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessjust4you.databinding.ItemDetailFoldedBinding
 import com.example.fitnessjust4you.data.entities.TrainingDetail
 
-class TrainingDetailAdapter (var trainingDetailList: MutableList<TrainingDetail>): RecyclerView.Adapter<TrainingDetailAdapter.DetailHolder>(){
+class TrainingDetailAdapter (var trainingDetailList: List<TrainingDetail>): RecyclerView.Adapter<TrainingDetailAdapter.DetailHolder>(){
 
     inner class DetailHolder(val binding: ItemDetailFoldedBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(trainingDetail: TrainingDetail){
-            binding.detailCounterText.text = trainingDetail.dset.toString()
-            binding.detailWeightText.text = trainingDetail.dweight.toString()
-            binding.detailRepsText.text = trainingDetail.dreps.toString()
+            binding.detailCounterText.text = trainingDetail.dset.toString() + ". Set"
+            binding.detailWeightText.text = trainingDetail.dweight.toString() + "kg"
+            binding.detailRepsText.text = trainingDetail.dreps.toString() + "reps"
         }
     }
 

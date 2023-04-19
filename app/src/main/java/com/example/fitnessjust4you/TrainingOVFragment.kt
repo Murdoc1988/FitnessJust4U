@@ -1,15 +1,18 @@
 package com.example.fitnessjust4you
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import com.example.fitnessjust4you.adapter.TrainingAdapter
 import com.example.fitnessjust4you.data.entities.Training
+import com.example.fitnessjust4you.data.entities.TrainingDetail
 import com.example.fitnessjust4you.data.entities.TrainingSet
 import com.example.fitnessjust4you.databinding.FragmentTrainingOVBinding
 
@@ -21,26 +24,11 @@ class TrainingOVFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /*var newTraining = Training(0, "Bauch, Beine, Po")
-        viewModel.addTraining(newTraining)
-        newTraining = Training(0, "Rücken")
-        viewModel.addTraining(newTraining)
-        newTraining = Training(0, "Nacken, Oberarme")
-        viewModel.addTraining(newTraining)
-        newTraining = Training(0, "Bauch, Rücken")
-        viewModel.addTraining(newTraining)
-
-        var newSet = TrainingSet(0, "Beinbeuger", "Beugen mit den Beinen", 5, 8, 12, "Waden", "Waden, Waden, Waden", 0,0  )
-        viewModel.addSet(newSet)
-        newSet = TrainingSet(0, "Butterfly", "Händeklatschen für Grobmotoriker", 8, 10, 15, "Bizeps", "irgendwelche anderen Muskeln", 0,0  )
-        viewModel.addSet(newSet)
-        newSet = TrainingSet(0, "Bankdrücken", "Bank gegen den Boden drücken", 20, 5, 7, "Wandmuskel", "noch mal andere Muskeln", 0,0  )
-        viewModel.addSet(newSet)
-        newSet = TrainingSet(0, "Seilspringen", "Bring das Seil zum Springen", 2, 100, 150, "Keine", "Sieht nur doof aus", 0,0  )
-        viewModel.addSet(newSet)*/
-
+        //fillDatabase()
 
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,15 +62,52 @@ class TrainingOVFragment : Fragment() {
         }
 
         binding.trainingoverlayAddButton.setOnClickListener {
+
             var trainingname = binding.trainingoverlayNameInput.text.toString()
             var newTraining = Training(0, trainingname)
+
             viewModel.addTraining(newTraining)
+
             binding.trainingoverlayCardview.isGone = true
             binding.trainingoverlayFAB.isVisible = true
 
+            binding.trainingoverlayNameTextview.setText("")
 
+            val inputMethodManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
 
+    }
+
+
+    private fun fillDatabase() {
+
+        var newTraining = Training(0, "Bauch, Beine, Po")
+        viewModel.addTraining(newTraining)
+        newTraining = Training(0, "Rücken")
+        viewModel.addTraining(newTraining)
+        newTraining = Training(0, "Nacken, Oberarme")
+        viewModel.addTraining(newTraining)
+        newTraining = Training(0, "Bauch, Rücken")
+        viewModel.addTraining(newTraining)
+
+        var newSet = TrainingSet(0, "Beinbeuger", "Beugen mit den Beinen", 5, 8, 12, "Waden", "Waden, Waden, Waden", 0,0  )
+        viewModel.addSet(newSet)
+        newSet = TrainingSet(0, "Butterfly", "Händeklatschen für Grobmotoriker", 8, 10, 15, "Bizeps", "irgendwelche anderen Muskeln", 0,0  )
+        viewModel.addSet(newSet)
+        newSet = TrainingSet(0, "Bankdrücken", "Bank gegen den Boden drücken", 20, 5, 7, "Wandmuskel", "noch mal andere Muskeln", 0,0  )
+        viewModel.addSet(newSet)
+        newSet = TrainingSet(0, "Seilspringen", "Bring das Seil zum Springen", 2, 100, 150, "Keine", "Sieht nur doof aus", 0,0  )
+        viewModel.addSet(newSet)
+
+        var newTrainingDetail =  TrainingDetail(1, 1, 80.0, 20, 1, 30, 1)
+        viewModel.addDetail(newTrainingDetail)
+        newTrainingDetail =  TrainingDetail(2, 2, 80.0, 20, 1, 30, 1)
+        viewModel.addDetail(newTrainingDetail)
+        newTrainingDetail =  TrainingDetail(3, 3, 80.0, 20, 1, 30, 1)
+        viewModel.addDetail(newTrainingDetail)
+        newTrainingDetail =  TrainingDetail(4, 4, 80.0, 20, 1, 30, 1)
+        viewModel.addDetail(newTrainingDetail)
     }
 
 }
