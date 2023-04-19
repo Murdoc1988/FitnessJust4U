@@ -2,7 +2,9 @@ package com.example.fitnessjust4you
 
 import android.app.Application
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import coil.ImageLoader
 import com.example.fitnessjust4you.data.FitnessDatabase.Companion.getInstance
@@ -20,6 +22,14 @@ class AppViewModel(application: Application): AndroidViewModel(application){
     val trainingList = repository.trainingList
     val setList = repository.setList
     val detailList = repository.detailList
+
+    /*fun getLatestCharts(){
+        var lastBodyStatChart : LiveData<List<Chart>> = repository.bodyStatChartlist.value!![repository.bodyStatChartlist.value!!.lastIndex]
+        var lastProgressChart = repository.progressChartList.value!![repository.progressChartList.value!!.lastIndex]
+        var latestCharts: LiveData<List<Chart>> = lastBodyStatChart
+        latestCharts.add(lastBodyStatChart)
+
+    }*/
 
 
     fun addBodyStats(bodyStats: BodyStats){
@@ -52,22 +62,47 @@ class AppViewModel(application: Application): AndroidViewModel(application){
         }
     }
 
-    fun getChartURL(){
-        var url = "https://image-charts.com/chart?cht=lc&chs=700x100"
+    fun getChartURL(): String{
+        Log.d("ViewModel", "Function entered")
+
+        var url = "https://image-charts.com/chart?cht=lc&chs=300x300"
+        Log.d("ViewModel", "URL Created")
+
         var timestamps: String = ""
+        Log.d("ViewModel", "Timestamp created")
+
         var weigts: String = ""
+        Log.d("ViewModel", "Weights  created")
+
         var fats: String = ""
+        Log.d("ViewModel", "Fats created")
+
         var waters: String =""
+        Log.d("ViewModel", "Waters created")
 
-        repository.bodyStatsList.value!!.forEach {
+        //println("BodStatList: " + repository.bodyStatsList.value)
+
+        println("Viewmodel: " + bodyStatsList.value)
+
+        if(bodyStatsList.value != null){
+       bodyStatsList.value!!.forEach {
+
             timestamps = timestamps + it.btimestamp.toString() + "|"
-            weigts = weigts + it.bweigt.toString() + ","
-            fats = fats + it.bfat + ","
-            waters = waters + it.bwater.toString() +  ","
+            weigts = weigts + it.bweigt.toInt().toString() + ","
+            fats = fats + it.bfat.toInt().toString() + ","
+            waters = waters + it.bwater.toInt().toString() +  ","
         }
+            println(timestamps)
+            timestamps = timestamps.dropLast(1)
+            println(timestamps)
+            weigts = weigts.dropLast(1)
+            fats = fats.dropLast(1)
+            waters = waters.dropLast(1)
 
-        url = "$url\$chxl=$timestamps\$chd=$weigts|$fats|waters"
+        url = "$url&chxt=x,y&chxl=0:|$timestamps&chd=a:$weigts|$fats|$waters&chxr=1,0,150"
         println(url)
 
+        }
+        return url
     }
 }

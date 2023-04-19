@@ -77,6 +77,14 @@ interface FitnessDao {
     @Query("SELECT * FROM charts")
     fun getCharts():LiveData<List<Chart>>
 
+    @Query("SELECT * FROM charts WHERE ctype = 'bodystat'")
+    fun getBodyStatsCharts():LiveData<List<Chart>>
+
+    @Query("SELECT * FROM charts WHERE ctype ='Progress'")
+    fun getProgressCharts():LiveData<List<Chart>>
+
+
+
 
 
 

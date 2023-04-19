@@ -22,6 +22,14 @@ data class Repository(private val fitnessDatabase: FitnessDatabase){
     //List of Charts
     val chartList: LiveData<List<Chart>> get() = fitnessDatabase.fitnessDao.getCharts()
 
+    //List of BodyStats Charts
+    val bodyStatChartlist: LiveData<List<Chart>> get() = fitnessDatabase.fitnessDao.getBodyStatsCharts()
+
+    //List of Progress Charts
+    val progressChartList: LiveData<List<Chart>> get() = fitnessDatabase.fitnessDao.getProgressCharts()
+
+
+
 
     //insert/add
 

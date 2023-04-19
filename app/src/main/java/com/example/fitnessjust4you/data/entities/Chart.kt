@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "charts")
 data class Chart(
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var cid: Int,
     var ctype: String,
     var chart: Bitmap,

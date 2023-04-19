@@ -24,7 +24,7 @@ class TrainingOVFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //fillDatabase()
+        fillDatabase()
 
     }
 

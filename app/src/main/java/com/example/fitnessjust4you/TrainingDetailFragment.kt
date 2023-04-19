@@ -1,5 +1,6 @@
 package com.example.fitnessjust4you
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -7,6 +8,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import com.example.fitnessjust4you.adapter.TrainingDetailAdapter
 import com.example.fitnessjust4you.databinding.FragmentTrainingDetailBinding
@@ -45,6 +49,8 @@ class TrainingDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         activity?.title = "Sets"
 
+        binding.detailoverlayCardview.isGone = true
+
         viewModel.detailList.observe(viewLifecycleOwner){
             var adapter =  TrainingDetailAdapter(viewModel.detailList.value!!)
             binding.detailRv.adapter = adapter
@@ -72,6 +78,39 @@ class TrainingDetailFragment : Fragment() {
             timer.start()
 
         }
+
+        binding.detailFAB.setOnClickListener {
+            binding.detailoverlayCardview.isVisible = true
+            binding.detailFAB.isGone = true
+        }
+
+        binding.detailoverlayCancelButton.setOnClickListener {
+            binding.detailoverlayCardview.isGone = true
+            binding.detailFAB.isVisible = true
+        }
+
+        binding.detailoverlayAddButton.setOnClickListener {
+
+            var dweight = binding.detailoverlayWeightInput.text.toString().toDouble()
+            binding.detailoverlayWeightInput.setText("")
+            var dreps = binding.deatailoverlayRepsInput.text.toString().toInt()
+            binding.deatailoverlayRepsInput.setText("")
+            var dbreakmin = binding.detailoverlayMinInput.text.toString().toInt()
+            binding.detailoverlayMinInput.setText("")
+            var dbreaksec = binding.detailoverlaySecInput.text.toString().toInt()
+            binding.detailoverlaySecInput.setText("")
+            var newDetail = TrainingDetail(0,6,dweight, dreps, dbreakmin,dbreaksec, 0)
+
+            viewModel.addDetail(newDetail)
+
+            val inputMethodManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+
+            binding.detailoverlayCardview.isGone = true
+            binding.detailFAB.isVisible = true
+        }
+
+
 
 
 
