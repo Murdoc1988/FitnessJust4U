@@ -1,12 +1,11 @@
 package com.example.fitnessjust4you
 
 import android.app.Application
-import android.graphics.Bitmap
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import coil.ImageLoader
 import com.example.fitnessjust4you.data.FitnessDatabase.Companion.getInstance
 import com.example.fitnessjust4you.data.Repository
 import com.example.fitnessjust4you.data.entities.*
@@ -23,6 +22,26 @@ class AppViewModel(application: Application): AndroidViewModel(application){
     val setList = repository.setList
     val detailList = repository.detailList
 
+
+    private val _currentTraining = MutableLiveData<Training>()
+    val currentTraining: LiveData<Training>
+        get() = _currentTraining
+
+    private val _currentSet = MutableLiveData<TrainingSet>()
+    val currentSet: LiveData<TrainingSet>
+        get() = _currentSet
+
+    fun setCurrentSet(trainingSet: TrainingSet){
+        _currentSet.value = trainingSet
+        _currentSet.value = _currentSet.value
+    }
+    fun setCurrentTraining(training: Training){
+        _currentTraining.value = training
+        _currentTraining.value = _currentTraining.value
+    }
+
+
+
     /*fun getLatestCharts(){
         var lastBodyStatChart : LiveData<List<Chart>> = repository.bodyStatChartlist.value!![repository.bodyStatChartlist.value!!.lastIndex]
         var lastProgressChart = repository.progressChartList.value!![repository.progressChartList.value!!.lastIndex]
@@ -31,6 +50,14 @@ class AppViewModel(application: Application): AndroidViewModel(application){
 
     }*/
 
+    fun getSetListOfTraining(training: Training): List<TrainingSet> {
+
+        return repository.getSetOfTraining(training)
+    }
+
+    fun getDetailOfTraining(trainingSet: TrainingSet): List<TrainingDetail> {
+        return repository.getDetailOfSet(trainingSet)
+    }
 
     fun addBodyStats(bodyStats: BodyStats){
         viewModelScope.launch {

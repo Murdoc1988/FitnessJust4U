@@ -2,10 +2,16 @@ package com.example.fitnessjust4you.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.navArgument
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fitnessjust4you.AppViewModel
 import com.example.fitnessjust4you.R
 import com.example.fitnessjust4you.data.entities.Training
 import com.example.fitnessjust4you.databinding.ItemChartBinding
@@ -18,7 +24,8 @@ class TrainingAdapter(var trainingList: List<Training>): RecyclerView.Adapter<Tr
             binding.trainingSetCounterText.text = (1..20).random().toString() + " Übungen"
             binding.trainingDurationText.text = (1..240).random().toString() + " min"
             binding.oVCard.setOnClickListener {
-                binding.root.findNavController().navigate(R.id.action_trainingOVFragment_to_trainingSetFragment)
+                val bundle = bundleOf("training" to training)
+                binding.root.findNavController().navigate(R.id.action_trainingOVFragment_to_trainingSetFragment, bundle)
             }
         }
 

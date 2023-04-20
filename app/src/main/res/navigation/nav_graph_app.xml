@@ -52,13 +52,20 @@
         <action
             android:id="@+id/action_trainingSetFragment_to_trainingDetailFragment"
             app:destination="@id/trainingDetailFragment" />
+        <argument
+            android:name="Training"
+            app:argType="com.example.fitnessjust4you.data.entities.Training" />
     </fragment>
 
     <fragment
         android:id="@+id/trainingDetailFragment"
         android:name="com.example.fitnessjust4you.TrainingDetailFragment"
         android:label="fragment_training_detail"
-        tools:layout="@layout/fragment_training_detail" />
+        tools:layout="@layout/fragment_training_detail" >
+        <argument
+            android:name="TrainingSet"
+            app:argType="com.example.fitnessjust4you.data.entities.TrainingSet" />
+    </fragment>
     <fragment
         android:id="@+id/bodyStatsFragment"
         android:name="com.example.fitnessjust4you.BodyStatsFragment"

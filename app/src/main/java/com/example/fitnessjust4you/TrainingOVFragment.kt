@@ -82,8 +82,10 @@ class TrainingOVFragment : Fragment() {
 
     private fun fillDatabase() {
 
+        //erstes Training
         var newTraining = Training(0, "Bauch, Beine, Po")
         viewModel.addTraining(newTraining)
+
         newTraining = Training(0, "Rücken")
         viewModel.addTraining(newTraining)
         newTraining = Training(0, "Nacken, Oberarme")
@@ -91,22 +93,41 @@ class TrainingOVFragment : Fragment() {
         newTraining = Training(0, "Bauch, Rücken")
         viewModel.addTraining(newTraining)
 
-        var newSet = TrainingSet(0, "Beinbeuger", "Beugen mit den Beinen", 5, 8, 12, "Waden", "Waden, Waden, Waden", 0,0  )
-        viewModel.addSet(newSet)
-        newSet = TrainingSet(0, "Butterfly", "Händeklatschen für Grobmotoriker", 8, 10, 15, "Bizeps", "irgendwelche anderen Muskeln", 0,0  )
-        viewModel.addSet(newSet)
-        newSet = TrainingSet(0, "Bankdrücken", "Bank gegen den Boden drücken", 20, 5, 7, "Wandmuskel", "noch mal andere Muskeln", 0,0  )
-        viewModel.addSet(newSet)
-        newSet = TrainingSet(0, "Seilspringen", "Bring das Seil zum Springen", 2, 100, 150, "Keine", "Sieht nur doof aus", 0,0  )
+        //Sets zum ersten Training
+        var newSet = TrainingSet(0, "Beinbeuger", "Beugen mit den Beinen", 5, 8, 12, "Waden", "Waden, Waden, Waden", 1,0  )
         viewModel.addSet(newSet)
 
+        newSet = TrainingSet(0, "Butterfly", "Händeklatschen für Grobmotoriker", 5, 8, 12, "Waden", "Waden, Waden, Waden", 1,0  )
+        viewModel.addSet(newSet)
+
+        newSet = TrainingSet(0, "Bankdrücken", "Bank gegen den Boden drücken", 5, 8, 12, "Waden", "Waden, Waden, Waden",1 ,0  )
+        viewModel.addSet(newSet)
+
+
+        ////Sets zum zweiten Training
+        newSet = TrainingSet(0, "Butterfly", "Butterfliege", 8, 10, 15, "Bizeps", "irgendwelche anderen Muskeln", 2,0  )
+        viewModel.addSet(newSet)
+
+        newSet = TrainingSet(0, "Bankdrücken", "Drücken gegen die Bank", 20, 5, 7, "Wandmuskel", "noch mal andere Muskeln", 2,0  )
+        viewModel.addSet(newSet)
+
+        newSet = TrainingSet(0, "Seilspringen", "Spring über das Seil!", 2, 100, 150, "Keine", "Sieht nur doof aus", 2,1  )
+        viewModel.addSet(newSet)
+
+
+        //Details zum ersten Set
         var newTrainingDetail =  TrainingDetail(1, 1, 80.0, 20, 1, 30, 1)
         viewModel.addDetail(newTrainingDetail)
+
         newTrainingDetail =  TrainingDetail(2, 2, 80.0, 20, 1, 30, 1)
         viewModel.addDetail(newTrainingDetail)
-        newTrainingDetail =  TrainingDetail(3, 3, 80.0, 20, 1, 30, 1)
+
+        //Details zum zweiten Set
+
+        newTrainingDetail =  TrainingDetail(3, 1, 80.0, 20, 1, 30, 2)
         viewModel.addDetail(newTrainingDetail)
-        newTrainingDetail =  TrainingDetail(4, 4, 80.0, 20, 1, 30, 1)
+
+        newTrainingDetail =  TrainingDetail(4, 2, 80.0, 20, 1, 30, 2)
         viewModel.addDetail(newTrainingDetail)
     }
 

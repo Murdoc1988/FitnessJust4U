@@ -12,9 +12,14 @@ import android.view.inputmethod.InputMethodManager
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.viewModelScope
 import com.example.fitnessjust4you.adapter.TrainingDetailAdapter
 import com.example.fitnessjust4you.databinding.FragmentTrainingDetailBinding
 import com.example.fitnessjust4you.data.entities.TrainingDetail
+import com.example.fitnessjust4you.data.entities.TrainingSet
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
 class TrainingDetailFragment : Fragment() {
 
     enum class TimerState{
@@ -51,10 +56,27 @@ class TrainingDetailFragment : Fragment() {
 
         binding.detailoverlayCardview.isGone = true
 
-        viewModel.detailList.observe(viewLifecycleOwner){
-            var adapter =  TrainingDetailAdapter(viewModel.detailList.value!!)
-            binding.detailRv.adapter = adapter
+        //viewModel.detailList.observe(viewLifecycleOwner){
+
+        println("test1")
+        var trainingSet: TrainingSet = arguments?.getParcelable("trainingSet")!!
+        println("test2")
+        println(trainingSet)
+
+        viewModel.setCurrentSet(trainingSet)
+
+        viewModel.currentSet.observe(viewLifecycleOwner){
+
+            viewModel.viewModelScope.launch(Dispatchers.IO) {
+
+                var adapter = TrainingDetailAdapter(viewModel.getDetailOfTraining(trainingSet))
+                binding.detailRv.adapter = adapter
+            }
+
+
         }
+
+        //}
         binding.detailCountdownButton.setBackgroundColor(Color.GREEN)
 
 
@@ -99,7 +121,8 @@ class TrainingDetailFragment : Fragment() {
             binding.detailoverlayMinInput.setText("")
             var dbreaksec = binding.detailoverlaySecInput.text.toString().toInt()
             binding.detailoverlaySecInput.setText("")
-            var newDetail = TrainingDetail(0,6,dweight, dreps, dbreakmin,dbreaksec, 0)
+            var d_sid = viewModel.currentSet.value!!.sid
+            var newDetail = TrainingDetail(0,6,dweight, dreps, dbreakmin,dbreaksec, d_sid)
 
             viewModel.addDetail(newDetail)
 

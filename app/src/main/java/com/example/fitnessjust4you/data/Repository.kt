@@ -29,6 +29,15 @@ data class Repository(private val fitnessDatabase: FitnessDatabase){
     val progressChartList: LiveData<List<Chart>> get() = fitnessDatabase.fitnessDao.getProgressCharts()
 
 
+    fun getSetOfTraining(training: Training): List<TrainingSet> {
+        val tid: Int = training.tid
+        return fitnessDatabase.fitnessDao.getTrainingSetOfTraining(tid)
+    }
+
+    fun getDetailOfSet(trainingSet: TrainingSet): List<TrainingDetail>{
+        val sid: Int = trainingSet.sid
+        return fitnessDatabase.fitnessDao.getDetailOfTrainingSet(sid)
+    }
 
 
     //insert/add

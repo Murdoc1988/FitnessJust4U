@@ -83,6 +83,12 @@ interface FitnessDao {
     @Query("SELECT * FROM charts WHERE ctype ='Progress'")
     fun getProgressCharts():LiveData<List<Chart>>
 
+    @Query("SELECT * FROM training_set WHERE s_tid = :tid")
+    fun getTrainingSetOfTraining(tid: Int):List<TrainingSet>
+
+    @Query("SELECT * FROM training_detail WHERE d_sid = :sid")
+    fun getDetailOfTrainingSet(sid: Int):List<TrainingDetail>
+
 
 
 

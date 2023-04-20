@@ -2,6 +2,7 @@ package com.example.fitnessjust4you.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessjust4you.R
@@ -16,7 +17,8 @@ class SetAdapter(var trainingsSetList: List<TrainingSet>): RecyclerView.Adapter<
                     ""+ trainingSet.srepsend.toString() + " reps"
             binding.setCounterText.text = trainingSet.ssets.toString() + " sets "
             binding.setCard.setOnClickListener {
-                binding.root.findNavController().navigate(R.id.action_trainingSetFragment_to_trainingDetailFragment)
+                val bundle = bundleOf("trainingSet" to trainingSet)
+                binding.root.findNavController().navigate(R.id.action_trainingSetFragment_to_trainingDetailFragment, bundle)
             }
 
         }
@@ -36,4 +38,5 @@ class SetAdapter(var trainingsSetList: List<TrainingSet>): RecyclerView.Adapter<
     override fun getItemCount(): Int {
         return trainingsSetList.size
     }
+
 }

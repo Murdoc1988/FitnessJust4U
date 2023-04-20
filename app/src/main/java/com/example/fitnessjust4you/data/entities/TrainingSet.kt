@@ -1,9 +1,12 @@
 package com.example.fitnessjust4you.data.entities
 
+import android.os.Parcelable
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "training_set")
 data class TrainingSet(
 
@@ -22,4 +25,4 @@ data class TrainingSet(
     val ssmuscles: String,
     val s_tid: Int,
     val s_uid: Int
-)
+): Parcelable
