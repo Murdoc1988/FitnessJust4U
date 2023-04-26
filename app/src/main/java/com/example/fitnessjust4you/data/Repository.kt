@@ -31,6 +31,9 @@ data class Repository(private val fitnessDatabase: FitnessDatabase){
 
     fun getSetOfTraining(training: Training): List<TrainingSet> {
         val tid: Int = training.tid
+        //println("Hier!")
+        //println(fitnessDatabase.fitnessDao.getTrainingSetOfTraining(tid).value)
+
         return fitnessDatabase.fitnessDao.getTrainingSetOfTraining(tid)
     }
 

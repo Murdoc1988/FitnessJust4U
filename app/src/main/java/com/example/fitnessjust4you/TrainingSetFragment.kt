@@ -58,6 +58,13 @@ class TrainingSetFragment : Fragment() {
 
                 }
 
+
+            }
+
+            viewModel.currentSetList.observe(viewLifecycleOwner) {
+
+
+
             }
         //}
 

@@ -3,6 +3,7 @@ package com.example.fitnessjust4you.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessjust4you.R
@@ -36,6 +37,7 @@ class SetAdapter(var trainingsSetList: List<TrainingSet>): RecyclerView.Adapter<
     }
 
     override fun getItemCount(): Int {
+
         return trainingsSetList.size
     }
 

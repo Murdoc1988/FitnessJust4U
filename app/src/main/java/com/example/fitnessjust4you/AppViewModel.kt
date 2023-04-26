@@ -31,6 +31,10 @@ class AppViewModel(application: Application): AndroidViewModel(application){
     val currentSet: LiveData<TrainingSet>
         get() = _currentSet
 
+    private val _currentSetList = MutableLiveData<List<TrainingSet>>()
+    val currentSetList: LiveData<List<TrainingSet>>
+        get() = _currentSetList
+
     fun setCurrentSet(trainingSet: TrainingSet){
         _currentSet.value = trainingSet
         _currentSet.value = _currentSet.value
@@ -52,7 +56,9 @@ class AppViewModel(application: Application): AndroidViewModel(application){
 
     fun getSetListOfTraining(training: Training): List<TrainingSet> {
 
+
         return repository.getSetOfTraining(training)
+
     }
 
     fun getDetailOfTraining(trainingSet: TrainingSet): List<TrainingDetail> {
